@@ -1,3 +1,6 @@
+import networkx as nx
+from Graficar import VisualizadorDFS
+
 # Implementación del camino más largo en un DAG utilizando tres enfoques: recursivo, memoización y programación dinámica
 
 # Enfoque Recursivo Básico
@@ -93,3 +96,12 @@ for k in range(V):
 print("Camino más largo (Recursivo):", encontrar_camino_mas_largo_recursivo(Grafo))
 print("Camino más largo (Memoización):", encontrar_camino_mas_largo_memo(Grafo))
 print("Camino más largo (Programación Dinámica):", encontrar_camino_mas_largo_dp(Grafo))
+
+# Crear el grafo en NetworkX para visualización
+G = nx.DiGraph()
+for u in range(N):
+    for v in Grafo[u]:
+        G.add_edge(u, v)
+
+vis_dfs = VisualizadorDFS(G)
+vis_dfs.ejecutar()
